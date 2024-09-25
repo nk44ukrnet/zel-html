@@ -7,3 +7,71 @@ body {
   font-family: var(--hb-font1);
   color: var(--hb-font-dark);
 }
+
+.hb-container1 {
+  width: 100%;
+  max-width: 1221px;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+.hb-container2 {
+  width: 100%;
+  max-width: 1441px;
+  margin-inline: auto;
+  box-sizing: border-box;
+  padding-inline: @sidePadding;
+}
+
+.hb-btn {
+  &, &:visited, &:link {
+    transition: all 0.25s linear;
+
+    padding: 3px 15px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    min-width: 94px;
+    min-height: 40px;
+    background-color: var(--hb-color-dark);
+    color: var(--hb-color-light);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 172%;
+    text-decoration: none;
+
+
+    &:hover {
+
+      transform: translateY(2px);
+    }
+  }
+}
+
+.hb-text-center {
+  text-align: center;
+}
+
+.hb-heading-v1 {
+  font-weight: 300;
+  font-size: 35px;
+  line-height: 113%;
+  margin-top: 0;
+  margin-bottom: 24px;
+
+  @media (min-width: @mobile) {
+    font-size: 42px;
+    line-height: 104%;
+    margin-bottom: 32px;
+  }
+}
+
+.hb-big-text {
+  font-weight: 800;
+  font-size: 35px;
+  line-height: 117%;
+}
