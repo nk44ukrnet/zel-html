@@ -10,7 +10,13 @@
 </head>
 <body>
 
-<div class="hb-login">
+<div class="hb-nav-test">
+    <a href="#hb-login" data-to-screen="hb-login">Login &rarr;</a>
+    <a href="#hb-loading" data-to-screen="hb-loading">Loading &rarr;</a>
+    <a href="#hb-swiper" data-to-screen="hb-swiper">Tabs &rarr;</a>
+</div>
+
+<div id="hb-login" class="hb-login hb-screen-test active">
     <div class="hb-login__inner">
         <div class="hb-login__logo">
             <svg width="97" height="51" viewBox="0 0 97 51" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,8 +57,8 @@
                                 <path d="M11.9823 12.5764V7.62169C11.9823 7.62169 12.541 8.55284 14.5603 8.60971C14.668 8.61273 14.7571 8.52415 14.7571 8.41644V7.01619C14.7571 6.912 14.6741 6.82946 14.5699 6.82342C13.0035 6.73484 12.2596 5.53341 12.1866 4.43164C12.1801 4.32946 12.0905 4.25195 11.9883 4.25195H10.3913C10.2851 4.25195 10.1985 4.33802 10.1985 4.44472V12.3212C10.1985 13.1769 9.5447 13.9213 8.69006 13.9615C7.71311 14.0078 6.91887 13.1693 7.03967 12.1783C7.12523 11.4781 7.68694 10.9049 8.38555 10.8077C8.52447 10.7886 8.65986 10.7871 8.79123 10.8017C8.9075 10.8148 9.00967 10.7282 9.00967 10.6114V9.20766C9.00967 9.108 8.93367 9.02143 8.83401 9.01539C8.63369 9.0023 8.42833 9.00683 8.21996 9.03049C6.67929 9.20514 5.43609 10.4519 5.26546 11.993C5.04048 14.026 6.62594 15.7468 8.61356 15.7468C10.4743 15.7468 11.9828 14.2384 11.9828 12.3776"
                                       fill="white"/>
                             </svg>
-                            <input type="text" class="hb-login-form__input error" name="tiktok-login"
-                                   placeholder="Your TikTok username">
+                            <input type="text" class="hb-login-form__input" name="tiktok-login"
+                                   placeholder="Your TikTok username"> <!-- 'error' css class-->
                         </div>
                     </div>
 
@@ -63,7 +69,7 @@
     </div>
 </div>
 
-<div class="hb-loading">
+<div id="hb-loading" class="hb-loading hb-screen-test">
     <div class="hb-loading__inner">
         <div class="hb-loading__content">
             <div class="hb-loading__progress">
@@ -74,7 +80,7 @@
     </div>
 </div>
 
-<div class="swiper mySwiper1 hb-content active">
+<div id="hb-swiper" class="swiper hb-screen-test mySwiper1 hb-content">
     <header class="hb-content__header">
         <div class="hb-content__header-top">
             <div class="hb-content__header-logo">
@@ -114,7 +120,7 @@
                     <span class="num">6</span>
                     <span class="custom-pagination-item"> Overall production score </span>
                 </span>
-                <span class="swiper-pagination-bullet" data-index="6">
+                <span class="swiper-pagination-bullet last-child" data-index="6">
                     <span class="num">7</span>
                     <span class="custom-pagination-item"> Content score </span>
                 </span>
@@ -134,7 +140,7 @@
     </header>
 
     <div class="swiper-wrapper">
-        <div class="swiper-slide swiper-slider-1 swiper-slide-type1">
+        <div class="swiper-slide swiper-slider-1 swiper-slide-type1 active">
             <div class="swiper-slide-inner">
                 <div class="swiper-slide-inner__content">
                     <h2 class="hb-heading-v1 hb-text-center">Basic information</h2>
@@ -656,7 +662,7 @@
                 </div>
             </div>
         </div>
-        <div class="swiper-slide swiper-slider-5 swiper-slide-type5 active">
+        <div class="swiper-slide swiper-slider-5 swiper-slide-type5">
             <div class="swiper-slide-inner">
                 <div class="hb-container3">
                     <div class="swiper-slide-type5__holder">
@@ -682,14 +688,59 @@
                 </div>
             </div>
         </div>
+
         <div class="swiper-slide swiper-slider-6 swiper-slide-type6">
             <div class="swiper-slide-inner">
-
+                <div class="hb-container3">
+                    <div class="swiper-slide-type6__holder">
+                        <div class="swiper-slide-type6__item swiper-slide-type6__item--text">
+                            <h2 class="hb-heading-v1">Production score</h2>
+                            <div class="hb-score mb24">9 \ 10</div>
+                            <ul class="hb-list">
+                                <li>Great lighting in your videos</li>
+                                <li>Use of title and subtitles</li>
+                                <li>Titles should be more intriguing</li>
+                            </ul>
+                        </div>
+                        <div class="swiper-slide-type6__item swiper-slide-type6__item--img">
+                            <svg width="332" height="332" viewBox="0 0 332 332" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M196.838 24.6189C188.972 -7.6731 143.018 -7.6731 135.152 24.6189C133.977 29.4713 131.674 33.9779 128.429 37.7719C125.184 41.5659 121.089 44.5402 116.477 46.4526C111.865 48.3651 106.867 49.1617 101.89 48.7777C96.912 48.3936 92.0953 46.8397 87.8315 44.2425C59.4311 26.9373 26.9321 59.4363 44.2373 87.8367C55.4153 106.177 45.5 130.106 24.6344 135.178C-7.67827 143.023 -7.67827 188.998 24.6344 196.822C29.4881 197.998 33.9955 200.304 37.7895 203.551C41.5835 206.799 44.5569 210.896 46.4675 215.511C48.3782 220.125 49.172 225.125 48.7845 230.104C48.3969 235.083 46.8389 239.9 44.2373 244.163C26.9321 272.563 59.4311 305.062 87.8315 287.757C92.0945 285.156 96.9116 283.598 101.891 283.21C106.87 282.823 111.87 283.616 116.484 285.527C121.098 287.438 125.196 290.411 128.443 294.205C131.691 297.999 133.997 302.507 135.172 307.36C143.018 339.673 188.992 339.673 196.817 307.36C197.997 302.509 200.305 298.005 203.553 294.213C206.801 290.422 210.898 287.45 215.511 285.54C220.124 283.63 225.122 282.836 230.1 283.221C235.077 283.606 239.894 285.16 244.158 287.757C272.558 305.062 305.057 272.563 287.752 244.163C285.155 239.899 283.601 235.083 283.216 230.105C282.83 225.127 283.625 220.129 285.535 215.516C287.445 210.903 290.417 206.806 294.208 203.558C298 200.31 302.504 198.002 307.355 196.822C339.668 188.977 339.668 143.002 307.355 135.178C302.501 134.002 297.994 131.696 294.2 128.449C290.406 125.201 287.433 121.103 285.522 116.489C283.611 111.875 282.817 106.875 283.205 101.896C283.593 96.9168 285.151 92.0996 287.752 87.8367C305.057 59.4363 272.558 26.9373 244.158 44.2425C239.895 46.8441 235.078 48.4021 230.099 48.7897C225.12 49.1772 220.12 48.3833 215.505 46.4727C210.891 44.5621 206.794 41.5887 203.546 37.7947C200.298 34.0007 197.993 29.4933 196.817 24.6396L196.838 24.6189ZM165.995 228.1C182.465 228.1 198.26 221.557 209.906 209.911C221.552 198.265 228.095 182.47 228.095 166C228.095 149.53 221.552 133.735 209.906 122.089C198.26 110.443 182.465 103.9 165.995 103.9C149.525 103.9 133.729 110.443 122.083 122.089C110.437 133.735 103.895 149.53 103.895 166C103.895 182.47 110.437 198.265 122.083 209.911C133.729 221.557 149.525 228.1 165.995 228.1Z"
+                                      fill="#D9D9D9"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="swiper-slide swiper-slider-7 swiper-slide-type7">
-            <div class="swiper-slide-inner">
 
+        <div class="swiper-slide swiper-slider-7 swiper-slide-type7 ">
+            <div class="swiper-slide-inner">
+                <div class="hb-container3">
+                    <div class="swiper-slide-type7__holder">
+                        <div class="swiper-slide-type7__item swiper-slide-type7__item--img">
+                            <img src="img/img-card.png" alt="Video Deep Dive" loading="lazy">
+                        </div>
+                        <div class="swiper-slide-type7__item swiper-slide-type7__item--text">
+                            <h2 class="hb-heading-v1">Video Deep Dive</h2>
+                            <ul class="hb-list-total">
+                                <li>
+                                    <strong>Hook strength:</strong>
+                                    <span>Weak. Make it more controversial or something that the audience can relate to.</span>
+                                </li>
+                                <li>
+                                    <strong>Call to Action:</strong>
+                                    <span>Not strong enough. This is a subject that hits close to everybody - what do you want your viewers to do with it? How will you help them?</span>
+                                </li>
+                                <li class="total">
+                                    <span>Video content score: </span>
+                                    <strong>6.5</strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -709,103 +760,6 @@
     </footer>
 </div>
 
-
-<!--<script src="script/vendor/swiper.js"></script>-->
-<script>
-    /* const customText = [
-         `Basic information`,
-         `Summary `,
-         `Bio analysis`,
-         `Consistency analysis`,
-         `Content analysis`,
-         `Overall production score`,
-         `Content score`,
-     ];
-
-     // Initialize variable for swiper instance
-     let swiper;
-
-     function initSwiper() {
-         // If swiper is not undefined then swiper instance already exists,
-         // So destroy it before creating a new one.
-         if (swiper !== undefined) swiper.destroy();
-
-         // Check the window width to determine whether to enable mousewheel control.
-         let mousewheelEnabled = window.innerWidth > 480 ? true : false;
-         let freeModeEnabled = window.innerWidth <= 480 ? true : false;
-
-         swiper = new Swiper(".mySwiper1", {
-             direction: "vertical",
-             slidesPerView: 1,
-             spaceBetween: 0,
-             // mousewheel: mousewheelEnabled,
-             mousewheel: false,
-             freeMode: freeModeEnabled,
-             // freeMode: true,
-             clickable: true,
-             navigation: {
-                 nextEl: '.swiper-button-next1',
-                 // prevEl: '.swiper-button-prev',
-             },
-             pagination: {
-                 el: ".swiper-pagination1",
-                 clickable: true,
-                 renderBullet: function (index, className) {
-                     return `<span class="${className}"> <span class="num">${index + 1}</span> <span class="custom-pagination-item"> ${customText[index]} </span></span>`;
-                 }
-             },
-             on: {
-                 slideChange: function () {
-                     centerActiveDot();
-                 },
-                 paginationUpdate: function () {
-                     centerActiveDot();
-                 }
-             }
-         });
-     }
-
-     // Initialize swiper on page load
-     window.onload = initSwiper;
-
-     // Reinitialize swiper when window is resized
-     window.onresize = initSwiper;
-
-     // Function to center the active dot in the scrollable .swiper-pagination1
-     function centerActiveDot() {
-         const paginationContainer = document.querySelector('.swiper-pagination1');
-         const activeDot = paginationContainer.querySelector('.swiper-pagination-bullet-active');
-
-         if (activeDot) {
-             const containerRect = paginationContainer.getBoundingClientRect();
-             const activeDotRect = activeDot.getBoundingClientRect();
-
-             // Calculate the scroll position to center the active dot
-             const scrollLeft = activeDotRect.left - containerRect.left + (activeDotRect.width / 2) - (containerRect.width / 2);
-
-             paginationContainer.scrollBy({
-                 left: scrollLeft,
-                 behavior: 'smooth'
-             });
-         }
-     }
-
-     setTimeout(() => {
-
-     }, 500)*/
-    let scrollableContainer = document.querySelector('.swiper-pagination1');
-    const gradientOverlay = document.querySelector('.gradient-overlay');
-    // Adjust the gradient position on scroll
-    scrollableContainer.addEventListener('scroll', () => {
-        const maxScrollLeft = scrollableContainer.scrollWidth - scrollableContainer.clientWidth;
-        const scrollPercentage = scrollableContainer.scrollLeft / maxScrollLeft;
-
-        // Adjust the position of the gradient based on horizontal scroll
-        gradientOverlay.style.transform = `translateX(${scrollableContainer.scrollLeft}px)`;
-    });
-
-
-</script>
 <script src="script/script.js"></script>
 </body>
 </html>
