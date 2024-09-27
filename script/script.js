@@ -10,8 +10,11 @@ window.addEventListener('DOMContentLoaded', () => {
         let currentPhrase = 0;
 
         let loadingHeading = document.querySelector('.hb-loading__text');
+        let parentEl = loadingHeading.closest('.hb-loading');
         if (loadingHeading && phrases.length > 0) {
             setInterval(() => {
+                if (!parentEl.classList.contains('active')) return;
+
                 if ((currentPhrase + 1) < (phrases.length)) {
                     currentPhrase += 1;
                     loadingHeading.textContent = phrases[currentPhrase];
@@ -19,7 +22,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     currentPhrase = 0;
                     loadingHeading.textContent = phrases[currentPhrase];
                 }
-            }, 2500)
+            }, 4000)
         }
     } catch (e) {
         console.log(e);
@@ -69,6 +72,69 @@ window.addEventListener('DOMContentLoaded', () => {
                 behavior: 'smooth'
             });
         }
+
+        function hasScrollbar() {
+            return document.documentElement.scrollHeight > window.innerHeight;
+        }
+
+        let scrollOnHold = false;
+
+        function setScrollOnHold() {
+            scrollOnHold = true;
+            setTimeout(() => {
+                scrollOnHold = false;
+            }, 700);
+        }
+
+
+        document.addEventListener("wheel", function (e) {
+            let sliderBlock = document.querySelector('.hb-content.active');
+            if (sliderBlock) {
+                let sliderItem = sliderBlock.querySelector('.swiper-slide.active');
+                let swiperBtnNext = document.querySelector('.swiper-button-next1');
+                if (sliderItem && scrollOnHold === false && !swiperBtnNext.classList.contains('swiper-button-disabled')) {
+                    let viewHasScroll = hasScrollbar();
+                    if (viewHasScroll) {
+                        // console.log('viewHasScroll');
+                        // Get the height of the entire document
+                        let documentHeight = document.documentElement.scrollHeight;
+                        // console.log('doc height: ', documentHeight);
+
+                        // Get the current scroll position
+                        let currentScroll = window.scrollY + window.innerHeight;
+                        // console.log('currentScroll: ', currentScroll);
+
+                        // Check if the user has scrolled to the bottom
+                        if (currentScroll + 1 >= documentHeight) {
+                            //console.log("User has scrolled to the end of the page");
+                            swiperBtnNext.click();
+                            setScrollOnHold();
+                        }
+                    } else {
+                        if (e.deltaY > 0) {
+                            swiperBtnNext.click();
+                            setScrollOnHold();
+                        }
+                        // console.log('view doesnt has scroll');
+                    }
+                }
+            }
+        })
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key == 'ArrowDown') {
+                let sliderBlock = document.querySelector('.hb-content.active');
+                if (sliderBlock) {
+                    let sliderItem = sliderBlock.querySelector('.swiper-slide.active');
+                    let swiperBtnNext = document.querySelector('.swiper-button-next1');
+                    if (sliderItem && scrollOnHold === false && !swiperBtnNext.classList.contains('swiper-button-disabled')) {
+                        swiperBtnNext.click();
+                        setScrollOnHold();
+                    }
+                }
+            }
+        });
+
 
         function centerActiveDot() {
             const paginationContainer = document.querySelector('.swiper-pagination1');
@@ -134,11 +200,13 @@ window.addEventListener('DOMContentLoaded', () => {
         let hbScreenTest = document.querySelectorAll('.hb-screen-test');
         let activeCSSClass = 'active';
         let aTrigger = document.querySelectorAll('a[data-to-screen]');
-        function deselect(){
+
+        function deselect() {
             hbScreenTest.forEach(item => {
                 item.classList.remove(activeCSSClass);
             })
         }
+
         aTrigger.forEach(item => {
             item.addEventListener('click', (e) => {
                 let dataset = e.target.dataset.toScreen;

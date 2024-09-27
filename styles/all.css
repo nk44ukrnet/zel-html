@@ -635,10 +635,23 @@ body {
   width: 100%;
   height: 100%;
   position: relative;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-block: 132px 110px;
+}
+@media (min-width: 768px) {
+  .hb-content.swiper {
+    padding-block: 88px 129px;
+  }
 }
 .hb-content.swiper .swiper-slide {
   overflow: auto;
   height: 100%;
+  min-height: calc(100vh - 132px - 110px);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
 }
 .hb-content.swiper .swiper-slide:not(.active) {
   display: none;
@@ -649,20 +662,22 @@ body {
   height: calc(100% - 16px);
   padding-inline: 24px;
   box-sizing: border-box;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
   overflow: auto;
+  flex: 1 1 100%;
 }
 @media (min-width: 768px) {
   .hb-content.swiper .swiper-slide-inner {
     margin: 16px 16px 0 16px;
     width: calc(100% - 32px);
-    border-radius: 24px;
+    border-radius: 24px 24px 0 0;
   }
 }
 .hb-content.swiper .swiper-slide-type1 .swiper-slide-inner {
   display: flex;
   justify-content: center;
-  padding-top: 40px;
+  align-items: center;
+  padding-top: 20px;
 }
 .hb-content.swiper .swiper-slide-type1 .swiper-slide-inner__holder {
   display: flex;
@@ -894,6 +909,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
   .hb-content.swiper .swiper-slide-type3__holder {
@@ -982,6 +998,7 @@ body {
 }
 .hb-content.swiper .swiper-slide-type5 {
   position: relative;
+  overflow: hidden;
 }
 .hb-content.swiper .swiper-slide-type5__holder {
   padding-top: 56px;
@@ -1181,7 +1198,8 @@ body {
   line-height: 142%;
 }
 .hb-content__header {
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   left: 0;
   z-index: 3;
@@ -1315,6 +1333,7 @@ body {
 }
 .hb-content__header-actions:has(.swiper-button-disabled) .swiper-button-next1 {
   display: none;
+  pointer-events: none;
 }
 .hb-content__header-actions:has(.swiper-button-disabled) .hb-btn {
   display: flex;
@@ -1331,10 +1350,13 @@ body {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  height: 110px;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
   .hb-content__footer {
     padding-block: 24px;
+    height: 129px;
   }
 }
 .hb-content__footer-text {
